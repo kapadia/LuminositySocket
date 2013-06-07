@@ -1,4 +1,4 @@
-# Weakforce
+# Luminosity Socket
 
 Server-side code for running scientific and educational collaboration environments.
 
