@@ -12,8 +12,13 @@ task 'build', 'Build from src/', ->
 
 task 'server', 'Watch src/ for changes', ->
   coffee = spawn 'node_modules/.bin/coffee', ['-w', '-c', '-m', '-o', '.', 'src']
-  # nodemon = spawn 'node_modules/.bin/nodemon', ['app.js']
+  nodemon = spawn 'node_modules/.bin/nodemon', ['app.js']
+  
   coffee.stderr.on 'data', (data) ->
     process.stderr.write data.toString()
   coffee.stdout.on 'data', (data) ->
+    print data.toString()
+  nodemon.stderr.on 'data', (data) ->
+    process.stderr.write data.toString()
+  nodemon.stdout.on 'data', (data) ->
     print data.toString()
